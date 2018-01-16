@@ -1,0 +1,76 @@
+<style lang="less">
+@import 'node_modules/weui-wxss/dist/style/weui.wxss';
+@weuiColorPrimary: #f42525;
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+</style>
+
+<script>
+import wepy from 'wepy'
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/room',
+      'pages/moment',
+      'pages/discover',
+      'pages/message',
+      'pages/me',
+      'pages/account/login'
+    ],
+    window: {
+      backgroundTextStyle: 'dark',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'WeChat',
+      navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      color: '#333',
+      selectedColor: '#C23',
+      backgroundColor: '#eee',
+      list: [
+        {
+          pagePath: 'pages/room',
+          text: '房间',
+          iconPath: 'res/images/ic_tab_room.png',
+          selectedIconPath: 'res/images/ic_tab_room.png'
+        },
+        {
+          pagePath: 'pages/moment',
+          text: '动态',
+          iconPath: 'res/images/ic_tab_moment.png',
+          selectedIconPath: 'res/images/ic_tab_moment.png'
+        },
+        {
+          pagePath: 'pages/discover',
+          text: '发现',
+          iconPath: 'res/images/ic_tab_discover.png',
+          selectedIconPath: 'res/images/ic_tab_discover.png'
+        },
+        {
+          pagePath: 'pages/message',
+          text: '消息',
+          iconPath: 'res/images/ic_tab_message.png',
+          selectedIconPath: 'res/images/ic_tab_message.png'
+        },
+        {
+          pagePath: 'pages/me',
+          text: '我',
+          iconPath: 'res/images/ic_tab_me.png',
+          selectedIconPath: 'res/images/ic_tab_me.png'
+        }
+      ]
+    },
+    debug: true
+  }
+
+  onLaunch() {
+  }
+}
+</script>

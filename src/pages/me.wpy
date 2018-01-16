@@ -1,0 +1,51 @@
+<style lang="less">
+
+</style>
+
+<template>
+  <view class="container">
+    <block wx:if="{{btn.showLogin}}">
+      <view class="button-sp-area">
+        <button class="weui-btn" type="primary" plain="true">微信登陆</button>
+      </view>
+    </block>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '我'
+    }
+    data = {
+      btn: {
+        showLogin: false
+      }
+    }
+    computed = {}
+    methods = {}
+    events = {}
+    onLoad() {
+      var that = this
+      wx.getStorage({
+        key: 'account',
+        success: function(data) {
+          if (data != null) {
+            that.data.btn.showLogin = true
+          } else {
+            that.data.btn.showLogin = false
+          }
+        },
+        fail: function(err) {
+          that.data.btn.showLogin = true
+        }
+      })
+    }
+    tabClick(e) {
+      this.sliderOffset = e.currentTarget.offsetLeft
+      this.activeIndex = e.currentTarget.id
+      this.$apply()
+    }
+  }
+</script>
